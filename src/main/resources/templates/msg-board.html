@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Instant Message Board</title>
+</head>
+<body>
+<form action="msg-board.html" th:action="@{/board/post}" method="post">
+<span>名前: </span><input type="text" name="name"><br />
+<span>コメント: </span><br />
+<textarea rows="4" cols="40" name="comment"></textarea>
+<button>Post!</button>
+</form>
+<div th:each="post:${application.posts}" th:object="${post}">
+<hr>
+<span th:text="*{name}">name</span><br />
+<p th:text="*{comment}">comment</p>
+</div>
+</body>
+</html>
