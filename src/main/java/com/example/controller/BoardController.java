@@ -30,11 +30,14 @@ public class BoardController {
 	}
 
 	@RequestMapping("/post")
-	public String post(Post post, Model model) {
-		model.addAttribute("post", post);
+	public String post(Post post) {
+		System.out.println("post = [name="+post.getName()+",comment"+post.getComment()+"]");
 		List<Post> posts = (List<Post>)application.getAttribute("posts");
 		
 		posts.add(0, post);
+		for(Post eachPost:posts) {
+			System.out.println("eachPost = [name="+eachPost.getName()+",comment"+eachPost.getComment()+"]");
+		}
 		
 		application.setAttribute("posts", posts);		
 		return "msg-board";
