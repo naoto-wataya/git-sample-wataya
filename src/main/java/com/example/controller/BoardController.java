@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.form.Post;
 
 @Controller
-@RequestMapping("/application-scope")
+@RequestMapping("/board")
 public class BoardController {
 	
 	@Autowired
